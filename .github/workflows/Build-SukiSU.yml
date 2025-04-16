@@ -9,7 +9,7 @@ on:
       FEIL:
         description: "配置文件"
         required: true
-        default: 'oneplus_ace3_pro_v'
+        default: 'gt6kgt5v'
       CPUD:
         description: "处理器代号"
         required: true
@@ -73,8 +73,8 @@ jobs:
 
       - name: Configure Git
         run: |
-         git config --global user.name "ychenxuan"
-         git config --global user.email "3494167979@qq.com"
+         git config --global user.name "Carl1984"
+         git config --global user.email "qiuyuebai1984@gmail.com"
 
       - name: Install dependencies
         run: |
