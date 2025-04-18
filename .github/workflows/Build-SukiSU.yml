@@ -331,4 +331,5 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           title: 'Android14_v${{ env.BUILD_TIME }}'
-          files: ./AnyKernel3/AnyKernel3_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}.zip
+          #files: ./AnyKernel3/AnyKernel3_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}.zip
+          files: ./AnyKernel3/*
