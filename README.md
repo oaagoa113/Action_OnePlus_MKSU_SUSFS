@@ -9,7 +9,7 @@
 
 真我内核开源地址：[realme_GT5pro-AndroidV-vendor](https://github.com/realme-kernel-opensource/realme_GT5pro-AndroidV-vendor-source)
 
-
+内存压缩patch开源地址：[LZ4 ztsd](https://github.com/ferstar/kernel_manifest/tree/realme/sm8650)
 
 # 原始项目
 [MKSU-SKN](https://github.com/ShirkNeko/KernelSU)
