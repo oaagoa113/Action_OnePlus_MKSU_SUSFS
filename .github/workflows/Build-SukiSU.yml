@@ -9,6 +9,10 @@ on:
       FEIL:
         description: "配置文件"
         required: true
+        type: choice
+        options:
+          - gt5pro
+          - gt6kgt5v
         default: 'gt6kgt5v'
       CPUD:
         description: "处理器代号"
@@ -236,13 +240,12 @@ jobs:
           #fi
 
           # Add Pathc for lz4
-          # cd ./common
-          patch -p1 < ../.repo/manifests/patches/001-lz4.patch
-          patch -p1 < ../.repo/manifests/patches/002-zstd.patch
-          
+          cd ./common
+          patch -p1 < ../../.repo/manifests/patches/001-lz4.patch
+          patch -p1 < ../../.repo/manifests/patches/002-zstd.patch
+
           # Remove check_defconfig
-          sed -i 's/check_defconfig//' ./common/build.config.gki
-          
+          sed -i 's/check_defconfig//' ./build.config.gki              
 
 
       - name: Add make name
