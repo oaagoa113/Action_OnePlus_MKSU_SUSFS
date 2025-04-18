@@ -79,7 +79,8 @@ jobs:
         run: |
          git config --global user.name "Carl1984"
          git config --global user.email "qiuyuebai1984@gmail.com"
-         echo "KVER=v$(date +%Y%m%d)" >> $GITHUB_ENV
+         # echo "KVER=v$(date +%Y%m%d)" >> $GITHUB_ENV
+         echo "BUILD_TIME=$(TZ=Asia/Shanghai date "+%Y%m%d%H%M")" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: |
@@ -254,7 +255,7 @@ jobs:
            if [[ "${{ github.event.inputs.KERNEL_VERSION }}" == "6.1" || "${{ github.event.inputs.KERNEL_VERSION }}" == "6.6" ]]; then
              sed -i "/stable_scmversion_cmd/s/-maybe-dirty//g" ./build/kernel/kleaf/impl/stamp.bzl
            fi
-           sed -i '$s|echo "\$res"|echo "\${{ github.event.inputs.KERNEL_NAME }}${{ env.KVER }}"|' ./common/scripts/setlocalversion
+           sed -i '$s|echo "\$res"|echo "\${{ github.event.inputs.KERNEL_NAME }}${{ env.BUILD_TIME }}"|' ./common/scripts/setlocalversion
   
       - name: Build kernel
         run: |
@@ -313,13 +314,13 @@ jobs:
       - name: Upload AnyKernel3
         uses: actions/upload-artifact@v4
         with:
-         name: AnyKernel3_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.KVER }}
+         name: AnyKernel3_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}
          path: ./AnyKernel3/*
 
       - name: Upload Image
         uses: actions/upload-artifact@v4
         with:
-         name: Image_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.KVER }}
+         name: Image_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}
          path: kernel_workspace/kernel
          
       - name: release
@@ -329,4 +330,4 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           title: 'Android14_v${{ env.BUILD_TIME }}'
-          files: ./AnyKernel3_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.KVER }}.zip
+          files: ./AnyKernel3/AnyKernel3_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}.zip
