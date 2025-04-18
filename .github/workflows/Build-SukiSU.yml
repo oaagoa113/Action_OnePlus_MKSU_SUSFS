@@ -315,3 +315,12 @@ jobs:
         with:
          name: Image_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.KVER }}
          path: kernel_workspace/kernel
+         
+      - name: release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          automatic_release_tag: 'Android14_v${{ env.BUILD_TIME }}'
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          title: 'Android14_v${{ env.BUILD_TIME }}'
+          files: ./AnyKernel3_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.KVER }}.zip
