@@ -327,7 +327,7 @@ jobs:
       - name: release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          automatic_release_tag: 'Android14_v${{ env.BUILD_TIME }}'
+          automatic_release_tag: '${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}${{ env.BUILD_TIME }}'
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           title: 'Android14_v${{ env.BUILD_TIME }}'
