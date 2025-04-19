@@ -323,6 +323,14 @@ jobs:
         with:
          name: Image_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}
          path: kernel_workspace/kernel
+
+    
+      - name: 下载 ZIP 工件
+        uses: actions/download-artifact@v4
+        with:
+          name: AnyKernel3_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}
+          path: ./release_zips
+
          
       - name: release
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -332,4 +340,4 @@ jobs:
           prerelease: false
           title: 'Android14_v${{ env.BUILD_TIME }}'
           #files: ./AnyKernel3/AnyKernel3_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}.zip
-          files: ./AnyKernel3/*
+          files: release_zips/AnyKernel3_*.zip
