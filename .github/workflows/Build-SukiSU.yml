@@ -329,15 +329,24 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: AnyKernel3_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}
-          path: ./release_zips
+          path: ./release_zips      
 
-         
-      - name: release
-        uses: "marvinpinto/action-automatic-releases@latest"
+      - name: 创建发布
+        id: create_release
+        uses: softprops/action-gh-release@v1
         with:
-          automatic_release_tag: '${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}${{ env.BUILD_TIME }}'
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          tag_name: "${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}"
+          name: "Realme${{ github.event.inputs.FEIL }} Build ${{ github.run_number }}"
+          body: |
+            自动编译 SukiSU-Ultra 内核
+            - 机型： reamlme
+            - 特性：MKSU+SUSFS+VFS+KPM
+            - 编译时间: ${{ env.BUILD_TIME }}
+            - 内核版本: ${{ env.KSUVER }}
+            - 推荐管理器：[SukiSU-Ultra](https://github.com/ShirkNeko/SukiSU-Ultra/releases)
+            - 如果构建的内核版本没变，不必更新！
+          draft: false
           prerelease: false
-          title: 'Android14_v${{ env.BUILD_TIME }}'
-          #files: ./AnyKernel3/AnyKernel3_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}.zip
-          files: release_zips/AnyKernel3_*.zip
+          files: |
+            release_zips/AnyKernel3_*.zip
+
