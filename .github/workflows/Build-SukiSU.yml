@@ -349,6 +349,7 @@ jobs:
             - 特性：MKSU+SUSFS+VFS+KPM
             - 编译时间: ${{ env.BUILD_TIME }}
             - 内核版本: ${{ env.KSUVER }}
+            - KernelSource: ${{ github.event.inputs.FEIL }}
             - 推荐管理器：[SukiSU-Ultra](https://github.com/ShirkNeko/SukiSU-Ultra/releases)
             - 如果构建的内核版本没变，不必更新！
           draft: false
