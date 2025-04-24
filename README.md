@@ -14,4 +14,5 @@
 内存压缩patch开源地址：[LZ4 ztsd](https://github.com/ferstar/kernel_manifest/tree/realme/sm8650)
 
 # 原始项目
-[MKSU-SKN](https://github.com/ShirkNeko/KernelSU)
+
+[SukiSU-Ultra](https://github.com/ShirkNeko/SukiSU-Ultra)
