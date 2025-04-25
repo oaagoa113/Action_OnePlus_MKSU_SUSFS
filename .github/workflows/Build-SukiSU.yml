@@ -2,10 +2,6 @@ name: Build Realme_Kernel
 on:
   workflow_dispatch:
     inputs:
-      CPU:
-        description: "分支"
-        required: true
-        default: 'sm8650'
       FEIL:
         description: "配置文件"
         required: true
