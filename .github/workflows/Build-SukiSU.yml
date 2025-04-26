@@ -57,10 +57,14 @@ on:
           - disable
         default: enable
       69_hide_stuff:
-        description: "正在打隐藏应用补丁？"
+        description: "打隐藏应用补丁？"
         required: true
-        type: boolean
-        default: false
+        type: choice
+        options:
+          - enable
+          - disable
+        default: disable
+        
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -162,7 +166,7 @@ jobs:
           echo "完成"
           
       - name: Apply Hide Stuff Patches
-        if: ${{ github.event.inputs.69_hide_stuff == 'true' }}
+        if: ${{ github.event.inputs.69_hide_stuff == 'enable' }}
         run: |
           cd kernel_workspace/kernel_platform/common
           cp ../../SukiSU_patch/69_hide_stuff.patch ./
