@@ -334,6 +334,14 @@ jobs:
          name: Image_${{ github.event.inputs.kernelsu_variant }}_${{ env.KSUVER }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}
          path: kernel_workspace/kernel
 
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      actions: read    
+    steps:
     
       - name: 下载 ZIP 工件
         uses: actions/download-artifact@v4
