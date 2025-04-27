@@ -10,7 +10,7 @@ on:
           - gt5pro
           - gt6kgt5v
           - gt6
-        default: 'gt6kgt5v'
+        default: 'gt6'
       CPUD:
         description: "处理器代号"
         required: true
