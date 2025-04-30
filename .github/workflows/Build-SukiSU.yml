@@ -362,7 +362,7 @@ jobs:
           tag_name: "${{ needs.build.outputs.ksuver }}_${{ github.event.inputs.FEIL }}_${{ env.BUILD_TIME }}"
           name: "Realme${{ github.event.inputs.FEIL }} Build ${{ github.run_number }}"
           body: |
-            自动编译 SukiSU-Ultra 内核
+            编译 SukiSU-Ultra 内核
             - 机型： reamlme
             - 特性：MKSU+SUSFS+VFS+KPM
             - 编译时间: ${{ env.BUILD_TIME }}
@@ -371,7 +371,7 @@ jobs:
             - 69_hide_stuff: ${{ github.event.inputs.hide_stuff }} 
             - SUSFS：1.5.7
             - 推荐管理器：[SukiSU-Ultra](https://github.com/ShirkNeko/SukiSU-Ultra/releases)
-            - 如果构建的内核版本没变，不必更新！
+
           draft: false
           prerelease: false
           files: |
