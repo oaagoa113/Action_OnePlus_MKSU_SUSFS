@@ -348,7 +348,7 @@ jobs:
             - 机型： reamlme
             - 特性：MKSU+SUSFS+VFS+KPM
             - 编译时间: ${{ env.BUILD_TIME }}
-            - 内核版本: ${{ needs.build.outputs.ksuver }}
+            - 内核版本: ${{ env.KSUVER }}
             - KernelSource: ${{ github.event.inputs.FEIL }}
             - 69_hide_stuff: ${{ github.event.inputs.hide_stuff }} 
             - SUSFS：1.5.7
