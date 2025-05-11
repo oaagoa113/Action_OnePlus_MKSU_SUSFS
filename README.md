@@ -1,3 +1,6 @@
+**[A HUGE THANK YOU TO CARL1984 FOR HIS CONTRIBUTIONS!](https://github.com/Carl1984/ )**
+
+
 # 食用说明
 一加内核开源地址：[OnePlusOSS](https://github.com/OnePlusOSS/kernel_manifest)
 
