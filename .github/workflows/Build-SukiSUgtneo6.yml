@@ -24,7 +24,7 @@ on:
       KERNEL_NAME:
         description: "修改内核名称"
         required: true
-        default: '.75-android14-11-o-g1a715a82feea'
+        default: '-android14-11-o-g1a715a82feea'
       BUILD_METHOD:
         type: choice
         description: "编译方式"
